@@ -1,0 +1,23 @@
+{
+  "name": "cld_workshop_lambda",
+  "version": "1.0.0",
+  "description": "**Scénario:**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pabloUrizar/CLD_Workshop_Lambda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pabloUrizar/CLD_Workshop_Lambda/issues"
+  },
+  "homepage": "https://github.com/pabloUrizar/CLD_Workshop_Lambda#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1382.0",
+    "sharp": "^0.32.1"
+  }
+}
