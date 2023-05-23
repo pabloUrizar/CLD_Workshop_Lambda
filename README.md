@@ -1,33 +1,24 @@
 # CLD_Workshop_Lambda
 
-Scénario:
-//**Initial launching**
-//given
+**Scénario:**
 
+//given
+Un S3 qui tourne, un lambda serveur qui tourne sous le langage node.js v.18.0.x
 
 //when
-Waiting few secondes
+On upload une image 
 
 //then
-A first Drupal instance is in "pending" status.
+S3 appelle la fonction lambda qui s'exécute (un traitement d'image quelconque ex: compression, conversion etc)
 
-//**Stress phase*
+Scénario bonus
+//**Phase de stress**
 //given
-One instance "Drupal" is running.
-Using the stress utility, load the CPU.
-
-//then
-The CPU load exceeds 30%.
+Un S3 qui tourne, un lambda serveur qui tourne sous le langage node.js v.18.0.x
 
 //when
-A second, third and fourth "Drupal" instance are launched.
-
-//**Return to normal phase**
-//given
-Stop the stress command. Via Htop you can see that the stress is below 30% again.
-
-//when
-After several minutes, the AWS Monitoring (Cloud Watch) detects the drop in load.
+On upload 1000 images d'un coup 
 
 //then
-Gradually the instances are terminated, until only one remains active.
+On monitore la fonction lambda pour voir si d'autres instances se créent
+
