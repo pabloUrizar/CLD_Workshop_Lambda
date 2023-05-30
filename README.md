@@ -48,3 +48,10 @@ s3 cp .\cat.jpg s3://aws.lambda.cld.education.test
 
 [OUT]
 upload: .\cat.jpg to s3://aws.lambda.cld.education.test/cat.jpg
+
+## Create policy
+
+aws iam create-policy --policy-name my-policy --policy-document ./policy.json
+[NOT WORKING YET]
+
+## Create execution role
