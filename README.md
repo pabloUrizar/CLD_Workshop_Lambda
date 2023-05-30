@@ -5,13 +5,13 @@
 ```
 //Phase normale
 //given
-Un S3 qui tourne, un lambda serveur qui tourne sous le langage node.js v.18.0.x
+Un Bucker S3 qui tourne, un Lambda qui tourne sous le langage node.js v.18.0.x
 
 //when
 On upload une image 
 
 //then
-S3 appelle la fonction lambda qui s'exécute (un traitement d'image quelconque ex: compression, conversion etc)
+Un trigger lance le Lambda quand un nouvelle élément est ajouté dans le Bucket S3, en l'occurence une image, un traitement sur l'image est effectué par le Lambda et nous retourne l'image modifiée.
 ```
 
 **Scénario bonus:**
