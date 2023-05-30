@@ -34,10 +34,17 @@ Each execution context provides 512 MB of additional disk space in the /tmp dire
 
 ## Create bucket
 
+
 [IN]
-aws s3api create-bucket --bucket aws.lambda.cld.education.test --region eu-south-1  --create-bucket-configuration LocationConstraint=eu-south-1
+aws s3 mb s3://aws.lambda.cld.education.test
 
 [OUT]
-{
-    "Location": "http://aws.lambda.cld.education.test.s3.amazonaws.com/"
-}
+make_bucket: aws.lambda.cld.education.test
+
+## Add image to bucket
+
+[IN]
+s3 cp .\cat.jpg s3://aws.lambda.cld.education.test
+
+[OUT]
+upload: .\cat.jpg to s3://aws.lambda.cld.education.test/cat.jpg
