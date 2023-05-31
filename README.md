@@ -51,7 +51,8 @@ upload: .\cat.jpg to s3://aws.lambda.cld.education.test/cat.jpg
 
 ## Create policy
 
-aws iam create-policy --policy-name my-policy --policy-document ./policy.json
-[NOT WORKING YET]
+ aws iam create-policy --policy-name cld-s3-trigger --policy-document file://./policy.json
 
 ## Create execution role
+
+CLD-WS-AWS-LAMBDA
