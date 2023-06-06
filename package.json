@@ -2,7 +2,7 @@
   "name": "cld_workshop_lambda",
   "version": "1.0.0",
   "description": "**Scénario:**",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/pabloUrizar/CLD_Workshop_Lambda#readme",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.345.0",
     "aws-sdk": "^2.1382.0",
     "sharp": "^0.32.1"
   }

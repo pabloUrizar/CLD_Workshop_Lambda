@@ -56,3 +56,23 @@ upload: .\cat.jpg to s3://aws.lambda.cld.education.test/cat.jpg
 ## Create execution role
 
 CLD-WS-AWS-LAMBDA
+
+## Create Function
+
+aws lambda create-function --function-name test --runtime nodejs18.x --zip-file fileb://function.zip --handler function.handler --role arn:aws:iam::709024702237:role/CLD-WS-AWS-LAMBDA
+
+aws lambda invoke --function-name test out --log-type Tail --query 'LogResult' --output text |  base64 -d
+
+## ???
+
+aws lambda add-permission --function-name test --action "lambda:InvokeFunction" --principal s3.amazonaws.com --source-arn  arn:aws:s3:::aws.lambda.cld.education.test --statement-id s3-trigger
+
+[OUT]
+{
+    "Statement": "{\"Sid\":\"s3-trigger\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"s3.amazonaws.com\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:eu-south-1:709024702237:function:test\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:s3:::aws.lambda.cld.education.test\"}}}"
+}
+
+
+  ARN BUCKET : arn:aws:s3:::aws.lambda.cld.education.test
+[IN]
+aws s3api put-bucket-notification-configuration --bucket aws.lambda.cld.education.test --notification-configuration file://configuration.json
