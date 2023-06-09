@@ -53,6 +53,8 @@ upload: .\cat.jpg to s3://aws.lambda.cld.education.test/cat.jpg
 
  aws iam create-policy --policy-name cld-s3-trigger --policy-document file://./policy.json
 
+ arn:aws:iam::709024702237:policy/cld-s3-trigger2
+
 ## Create execution role
 
 CLD-WS-AWS-LAMBDA
@@ -76,3 +78,23 @@ aws lambda add-permission --function-name test --action "lambda:InvokeFunction" 
   ARN BUCKET : arn:aws:s3:::aws.lambda.cld.education.test
 [IN]
 aws s3api put-bucket-notification-configuration --bucket aws.lambda.cld.education.test --notification-configuration file://configuration.json
+
+
+## GET statistics
+
+aws cloudwatch get-metric-statistics --namespace AWS/Lambda --metric-name Invocations --dimensions Name=FunctionName,Value=test --start-time 2023-06-06T08:00:00 --end-time 2023-06-07T15:28:00 --period 60 --statistics SampleCount
+
+
+aws lambda update-function-code --function-name  AWS-CLD-WORKSHOP --zip-file fileb://function.zip
+
+Remove-Item -Path "node_modules/sharp" -Recurse -Force npm install --arch=x64 --platform=linux --libc=glibc sharp
+
+
+## Marche à suivre
+
+- Modifier le code
+- Ziper tout le contenu de src et le renommer function.zip
+-  Executer la commande siuvante : 
+-  aws lambda update-function-code --function-name  AWS-CLD-WORKSHOP --zip-file fileb://function.zip
+-  Ajouter un fichier au bucket une image qui commence par "cat"
+    Exemple :  aws s3 cp ../Images/cat2.jpg s3://aws.lambda.cld.education.test
