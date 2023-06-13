@@ -31,7 +31,7 @@ export const handler = async (event, context) => {
             return Buffer.concat(buffers)
         })
         //Apply modification to the image
-        const modifierBufferedImage = await sharp(bufferedImage).rotate(90).negate().toBuffer();
+        const modifierBufferedImage = await sharp(bufferedImage).rotate(180).negate().toBuffer();
         
         //Parameters of the new image
         const params2 = {

@@ -98,3 +98,19 @@ Remove-Item -Path "node_modules/sharp" -Recurse -Force npm install --arch=x64 --
 -  aws lambda update-function-code --function-name  AWS-CLD-WORKSHOP --zip-file fileb://function.zip
 -  Ajouter un fichier au bucket une image qui commence par "cat"
     Exemple :  aws s3 cp ../Images/cat2.jpg s3://aws.lambda.cld.education.test
+
+    ## Demo
+    ### 1) Afficher contenu bucket 
+    aws s3 ls aws.lambda.cld.education.test
+
+    ### 2) Upload une image dans le bucket
+    aws s3 cp ../Images/cat.jpg s3://aws.lambda.cld.education.test
+
+    ### 3) Réafficher contenu bucket
+    aws s3 ls aws.lambda.cld.education.test
+
+    ### 4) Télécharger l'image modifié
+    aws s3 cp s3://aws.lambda.cld.education.test/cat2.jpg ../Images/edited_cat.jpg
+    ### 5) Ouvrir Dossier et afficher image
+    ### 6) Montrer log cloudwatch
+    ### 7) Montrer le code de la fonction
