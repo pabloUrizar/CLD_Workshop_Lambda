@@ -32,11 +32,12 @@ export const handler = async (event, context) => {
         })
         //Apply modification to the image
         const modifierBufferedImage = await sharp(bufferedImage).rotate(180).negate().toBuffer();
-        
         //Parameters of the new image
         const params2 = {
             Bucket : bucket,
-            Key: "edited_" + key,
+            // L'image doit etre renommée en remplacant unedited par edited
+            Key : key.replace("unedited", "edited"),
+            // Key: "edited_" + key,
             Body: modifierBufferedImage,
             ContentType: "image/*"
         }

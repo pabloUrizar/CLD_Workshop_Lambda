@@ -114,3 +114,11 @@ Remove-Item -Path "node_modules/sharp" -Recurse -Force npm install --arch=x64 --
     ### 5) Ouvrir Dossier et afficher image
     ### 6) Montrer log cloudwatch
     ### 7) Montrer le code de la fonction
+
+aws s3 ls aws.lambda.cld.education.test
+
+aws s3 cp ../Images/unedited_beagle.jpg s3://aws.lambda.cld.education.test
+aws s3 cp ../Images/unedited_florida.jpg s3://aws.lambda.cld.education.test
+
+aws s3 cp s3://aws.lambda.cld.education.test/edited_beagle.jpg ../Images/edited_beagle.jpg
+aws s3 cp s3://aws.lambda.cld.education.test/edited_florida.jpg ../Images/edited_florida.jpg
